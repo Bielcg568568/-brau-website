@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airdrop $BRAU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    button {
+      background: #ff007a;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      margin: 20px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h1>Airdrop de 100.000 $BRAU</h1>
+  <p>Conecte sua carteira para reivindicar seus tokens grátis!</p>
+  
+  <button id="connectButton">🔗 Conectar Carteira</button><br>
+  <button id="airdropButton" disabled>🎁 Ganhar 100.000 $BRAU</button>
+
+  <script>
+    let selectedAccount;
+
+    // Conectar à carteira
+    const connectButton = document.getElementById('connectButton');
+    const airdropButton = document.getElementById('airdropButton');
+
+    connectButton.addEventListener('click', async () => {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          selectedAccount = accounts[0];
+          connectButton.innerText = '✅ Conectado';
+          connectButton.disabled = true;
+          airdropButton.disabled = false;
+        } catch (err) {
+          alert('Erro ao conectar carteira: ' + err.message);
+        }
+      } else {
+        alert('MetaMask não detectado!');
+      }
+    });
+
+    // Enviar tokens (simulação - exige backend ou contrato com função claim)
+    airdropButton.addEventListener('click', async () => {
+      alert('Este botão deve chamar uma função do contrato para enviar os 100.000 $BRAU. ⚠️ Ainda não implementado!');
+      
+      // Aqui você colocaria a lógica para chamar a função claim() do seu contrato
+      // usando web3.js ou ethers.js + ABI
+    });
+  </script>
+</body>
+</html>
