@@ -1,0 +1,1 @@
+$BRAU é uma criptomoeda criada para quem entende que o mundo precisa de menos seriedade e mais zoeira digital. Com 1 trilhão de tokens, zero taxas de transferência, e uma pegada cyberpunk-futurista, o projeto mistura meme, tecnologia e um leve toque de loucura.
